@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     @livewireStyles
+    <link href = {{ asset("css/app.css") }} rel="stylesheet" />
     <script src="{{ url('/js/main.js') }}"></script>
+    <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap-theme.min.css') }}">
     @livewireScripts
     <title>Home</title>
 </head>
