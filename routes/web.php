@@ -11,12 +11,16 @@ Route::get('/', function () {
     return view('home');
 })->name('home');
 Route::get('/singup', [RegistroController::class, 'index'])
-->name('registro');
+    ->name('registro');
 Route::get('/login', [LoginController::class, 'index'])
-->name('login');
+    ->name('login');
 
 
 ///Dashboard Routs
+Route::middleware('auth')->group(function () {
+    
+    Route::get('/dashboard', [DashboardController::class, 'index'])
+        ->name('dasboard');
 
-Route::get('/dashboard', [DashboardController:: class, 'index'])
-->name('dasboard');
+
+});
