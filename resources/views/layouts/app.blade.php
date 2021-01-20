@@ -4,17 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    @livewireStyles
     <link href = {{ asset("css/app.css") }} rel="stylesheet" />
-    <script src="{{ url('/js/main.js') }}"></script>
-    <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap-theme.min.css') }}">
     @yield('css')
+    @livewireStyles
+    <script src="{{ asset(mix('js/app.js')) }}"></script>
     @livewireScripts
     <script src="https://kit.fontawesome.com/b6add834b6.js" crossorigin="anonymous"></script>
     <title>Home</title>
 </head>
 <body>
-    <script src="{{ asset(mix('js/app.js')) }}"></script>
     @yield('navBar')
     @yield('content')
     @yield('scripts')
