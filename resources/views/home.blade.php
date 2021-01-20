@@ -133,7 +133,7 @@
             <!-- START THE FEATURETTES -->
             <br>
             <hr class="featurette-divider" id="section1">
-
+            <br>
             <div class="row featurette">
                 <div class="col-md-7">
                     <h2 class="featurette-heading">Hola<span class="text-muted">mundo</span></h2>
@@ -153,7 +153,7 @@
             </div>
             <br>
             <hr class="featurette-divider" id="section2">
-
+            <br>
             <div class="row featurette">
                 <div class="col-md-7 order-md-2">
                     <h2 class="featurette-heading">Hola<span class="text-muted">mundo</span></h2>
@@ -174,7 +174,7 @@
             </div>
             <br>
             <hr class="featurette-divider" id="section3">
-
+            <br>
             <div class="row featurette">
                 <div class="col-md-7">
                     <h2 class="featurette-heading">Hola<span class="text-muted">mundo</span></h2>
