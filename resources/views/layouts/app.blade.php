@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap-theme.min.css') }}">
     @yield('css')
     @livewireScripts
+    <script src="https://kit.fontawesome.com/b6add834b6.js" crossorigin="anonymous"></script>
     <title>Home</title>
 </head>
 <body>

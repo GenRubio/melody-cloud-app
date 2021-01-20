@@ -10,9 +10,7 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="{{ route('home') }}">Home <span class="sr-only">(current)</span></a>
-                </li>
+
             </ul>
             <form class="form-inline my-2 my-lg-0 mr-2">
                 <a href="{{ route('login') }}" class="btn btn-outline-success my-2 my-sm-0" type="submit">Log in</a>
@@ -25,9 +23,9 @@
 @endsection
 @section('content')
     <div style="background-image: url('{{ url('/images/portada.jpg') }}');
-                        background-size: cover;
-                        width:101%;
-                        height:700px;" class="row">
+                                                        background-size: cover;
+                                                        width:101%;
+                                                        height:700px;" class="row">
         <div class="col p-5" style="color: white">
             <h3>MelodyCloud+</h3>
 
@@ -46,6 +44,7 @@
                         <title>Placeholder</title>
                         <rect width="100%" height="100%" fill="#777" /><text x="50%" y="50%" fill="#777"
                             dy=".3em">140x140</text>
+
                     </svg>
                 </div>
                 <div class="d-flex justify-content-center">
@@ -56,7 +55,7 @@
                     officiis, ea eveniet officia repellendus.</p>
 
                 <div class="d-flex justify-content-center">
-                    <a class="btn btn-secondary" href="#" role="button">Hola</a>
+                    <button id="tag1" class="btn btn-secondary">Hola</button>
                 </div>
             </div>
             <div class="col-lg-4">
@@ -77,7 +76,7 @@
                     officiis, ea eveniet officia repellendus.</p>
 
                 <div class="d-flex justify-content-center">
-                    <a class="btn btn-secondary" href="#" role="button">Hola</a>
+                    <button id="tag2" class="btn btn-secondary">Hola</button>
                 </div>
             </div>
             <div class="col-lg-4">
@@ -91,7 +90,7 @@
                     </svg>
                 </div>
                 <div class="d-flex justify-content-center">
-                    <h2>Hola</h2>
+                    <button id="tag3" class="btn btn-secondary">Hola</button>
                 </div>
                 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa explicabo cupiditate voluptatibus.
                     Temporibus praesentium minima asperiores totam deserunt vero, ut voluptas illum quisquam deleniti nam
@@ -106,7 +105,7 @@
 
         <hr class="featurette-divider">
 
-        <div class="row featurette">
+        <div class="row featurette section1">
             <div class="col-md-7">
                 <h2 class="featurette-heading">Hola<span class="text-muted">mundo</span></h2>
                 <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint enim reprehenderit nemo?
@@ -127,7 +126,7 @@
 
         <hr class="featurette-divider">
 
-        <div class="row featurette">
+        <div class="row featurette section2">
             <div class="col-md-7 order-md-2">
                 <h2 class="featurette-heading">Hola<span class="text-muted">mundo</span></h2>
                 <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint enim reprehenderit nemo?
@@ -148,7 +147,7 @@
 
         <hr class="featurette-divider">
 
-        <div class="row featurette">
+        <div class="row featurette section3">
             <div class="col-md-7">
                 <h2 class="featurette-heading">Hola<span class="text-muted">mundo</span></h2>
                 <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint enim reprehenderit nemo?
@@ -169,4 +168,16 @@
 
         <hr class="featurette-divider">
     </div>
+@endsection
+
+@section('scripts')
+    <script>
+        $(document).ready(function() {
+            $("#tag1").click(function() {
+                var objControl = document.getElementById("section3");
+                objControl.scrollTop = objControl.offsetTop;
+            });
+        });
+
+    </script>
 @endsection

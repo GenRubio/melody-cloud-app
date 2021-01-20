@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 class RegistroController extends Controller
 {
     public function index(){
-        return view('registro');
+        if (auth()->check()){
+            return redirect('dashboard');
+        }
+        else{
+            return view('registro');
+        }
     }
 }
