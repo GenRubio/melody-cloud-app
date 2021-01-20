@@ -1,10 +1,11 @@
 @extends('layouts.app')
 @section('css')
     <link href="{{ url('/css/login.css') }}" rel="stylesheet">
+    <link href="{{ url('/css/footer.css') }}" rel="stylesheet">
 @endsection
 
 @section('navBar')
-    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-lg">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-lg" style="height: 61px;">
         <a class="navbar-brand" href="#">MelodyCloud</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -18,7 +19,9 @@
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
-                <a href="{{ route('registro') }}" class="btn btn-outline-info my-2 my-sm-0" type="submit">Sing Up</a>
+                <a href="{{ route('registro') }}" class="btn btn-outline-danger my-2 my-sm-0" type="submit">
+                    <strong>Sing Up</strong>
+                </a>
             </form>
         </div>
     </nav>
@@ -54,12 +57,10 @@
             </div>
         </div>
     </main>
+    @include('components.footer')
 @endsection
 
 @section('scripts')
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <script>
         $(document).ready(function() {
             $("#name").focus();

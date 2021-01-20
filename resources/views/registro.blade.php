@@ -1,10 +1,11 @@
 @extends('layouts.app')
 @section('css')
     <link href="{{ url('/css/login.css') }}" rel="stylesheet">
+    <link href="{{ url('/css/footer.css') }}" rel="stylesheet">
 @endsection
 
 @section('navBar')
-    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-lg">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-lg" style="height: 61px;">
         <a class="navbar-brand" href="#">MelodyCloud</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -18,7 +19,9 @@
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0 mr-2">
-                <a href="{{ route('login') }}" class="btn btn-outline-success my-2 my-sm-0" type="submit">Log in</a>
+                <a href="{{ route('login') }}" class="btn btn-outline-danger my-2 my-sm-0" type="submit">
+                    <strong>Log in</strong>
+                </a>
             </form>
         </div>
     </nav>
@@ -51,6 +54,7 @@
             </div>
         </div>
     </main>
+    @include('components.footer')
 @endsection
 
 @section('scripts')

@@ -1,7 +1,10 @@
 @extends('layouts.app')
-
+@section('css')
+    <link href="{{ url('/css/footer.css') }}" rel="stylesheet">
+    <link href="{{ url('/css/home.css') }}" rel="stylesheet">
+@endsection
 @section('navBar')
-    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-lg">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-lg" style="height: 61px;">
         <a class="navbar-brand" href="#">MelodyCloud</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -13,26 +16,39 @@
 
             </ul>
             <form class="form-inline my-2 my-lg-0 mr-2">
-                <a href="{{ route('login') }}" class="btn btn-outline-success my-2 my-sm-0" type="submit">Log in</a>
+                <a href="{{ route('login') }}" class="btn btn-outline-danger my-2 my-sm-0" type="submit">
+                    <strong>Log in</strong>
+                </a>
             </form>
             <form class="form-inline my-2 my-lg-0">
-                <a href="{{ route('registro') }}" class="btn btn-outline-info my-2 my-sm-0" type="submit">Sing Up</a>
+                <a href="{{ route('registro') }}" class="btn btn-danger my-2 my-sm-0" type="submit">
+                    <strong>Sing Up</strong>
+                </a>
             </form>
         </div>
     </nav>
 @endsection
 @section('content')
     <div style="background-color: #d0d0ce;">
-        <div style="background-image: url('{{ url('/images/portada.jpg') }}');
-                                                                background-size: cover;
-                                                                width:101%;
-                                                                height:700px;" class="row">
-            <div class="col p-5" style="color: white">
-                <h3>MelodyCloud+</h3>
+        <div id="imagenPortada">
 
+            <div class="container">
+                <div class="row">
+                    <div class="col p-5" style="color: white">
+                        <div style="margin-top: 160px">
+                            <h1><strong style="font-size: 38px; color: red;">MelodyCloud+</strong></h1>
+                            <p><strong style="font-size: 17px; color: red;">¡Almacena tus canciones, añade amigos, crea listas compartidas y mucho más!<br>
+                                ¿A qué esperas para descubrir MelodyCloud?</strong></p>
+                                <a href="{{ route('registro') }}" class="btn btn-outline-danger btn-lg" style="font-size: 27px;"><strong>DESCUBRIR</strong></a>
+                        </div>
+
+                    </div>
+                    <div class="col">
+                    </div>
+                </div>
             </div>
-            <div class="col">
-            </div>
+
+
         </div>
         <br>
         <div class="container">
@@ -174,10 +190,10 @@
 
                 </div>
             </div>
-            <hr class="featurette-divider">
+            <br><br>
         </div>
+        @include('components.footer')
     </div>
-    
 @endsection
 
 @section('scripts')
