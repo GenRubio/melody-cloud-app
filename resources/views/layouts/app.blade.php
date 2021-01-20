@@ -8,6 +8,7 @@
     <link href = {{ asset("css/app.css") }} rel="stylesheet" />
     <script src="{{ url('/js/main.js') }}"></script>
     <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap-theme.min.css') }}">
+    @yield('css')
     @livewireScripts
     <title>Home</title>
 </head>
@@ -15,5 +16,6 @@
     <script src="{{ asset(mix('js/app.js')) }}"></script>
     @yield('navBar')
     @yield('content')
+    @yield('scripts')
 </body>
 </html>
