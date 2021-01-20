@@ -33,7 +33,7 @@
         <div id="imagenPortada">
             <div class="container">
                 <div class="row">
-                    <div class="col p-5" style="color: white">
+                    <div class="col" style="color: white">
                         <div style="margin-top: 160px">
                             <h1><strong style="font-size: 38px; color: red;">MelodyCloud+</strong></h1>
                             <p><strong style="font-size: 17px; color: red;">¡Almacena tus canciones, añade amigos, crea
