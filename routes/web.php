@@ -3,13 +3,13 @@
 use App\Http\Controllers\Home\LoginController;
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Home\RegistroController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 
 //Home Routs
-Route::get('/', function () {
-    return view('home');
-})->name('home');
+Route::get('/', [HomeController::class, 'index'])
+    ->name('home');
 Route::get('/singup', [RegistroController::class, 'index'])
     ->name('registro');
 Route::get('/login', [LoginController::class, 'index'])
