@@ -6,7 +6,7 @@
 
 @section('navBar')
     <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-lg" style="height: 61px;">
-        <a class="navbar-brand" href="#">MelodyCloud</a>
+        <a class="navbar-brand" href="#"><strong style="color: red"><i class="fas fa-cloud"></i> MelodyCloud</strong></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -58,9 +58,6 @@
 @endsection
 
 @section('scripts')
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <script>
         $(document).ready(function() {
             $("#name").focus();

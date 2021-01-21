@@ -5,6 +5,8 @@ namespace App\Http\Livewire;
 use App\Models\User;
 use Livewire\Component;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 
 class RegisterForm extends Component
 {
@@ -29,8 +31,13 @@ class RegisterForm extends Component
         $user->username = $this->name;
         $user->email = $this->email;
         $user->password = Hash::make($this->password);
+        $user->repositorio = Hash::make($this->name . $this->email . $this->password);
         $user->save();
 
+        $path = 'users/' . $user->repositorio;
+        File::makeDirectory($path, 0777, true, true);
 
+        Auth::login($user);
+        return redirect()->intended('/dashboard');
     }
 }
