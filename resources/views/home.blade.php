@@ -63,12 +63,9 @@
                     </div>
                     <br>
                     <div class="d-flex justify-content-center">
-                        <h2>Hola</h2>
+                        <h2>{{ $sections[0]->title }}</h2>
                     </div>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa explicabo cupiditate voluptatibus.
-                        Temporibus praesentium minima asperiores totam deserunt vero, ut voluptas illum quisquam deleniti
-                        nam
-                        officiis, ea eveniet officia repellendus.</p>
+                    <p>{!! nl2br(e($sections[0]->description)) !!}</p>
 
                     <div class="d-flex justify-content-center">
                         <button id="tag1" class="btn btn-secondary mb-2">
@@ -87,13 +84,9 @@
                     </div>
                     <br>
                     <div class="d-flex justify-content-center">
-                        <h2>Hola</h2>
+                        <h2>{{ $sections[1]->title }}</h2>
                     </div>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa explicabo cupiditate voluptatibus.
-                        Temporibus praesentium minima asperiores totam deserunt vero, ut voluptas illum quisquam deleniti
-                        nam
-                        officiis, ea eveniet officia repellendus.</p>
-
+                    <p>{!! nl2br(e($sections[1]->description)) !!}</p>
                     <div class="d-flex justify-content-center">
                         <button id="tag2" class="btn btn-secondary mb-2">
                             <strong>Read more</strong>
@@ -113,13 +106,10 @@
                     <br>
                     <div class="d-flex justify-content-center">
                         <div class="my-auto">
-                            <h2>Hola</h2>
+                            <h2>{{ $sections[2]->title }}</h2>
                         </div>
                     </div>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa explicabo cupiditate voluptatibus.
-                        Temporibus praesentium minima asperiores totam deserunt vero, ut voluptas illum quisquam deleniti
-                        nam
-                        officiis, ea eveniet officia repellendus.</p>
+                    <p>{!! nl2br(e($sections[2]->description)) !!}</p>
 
                     <div class="d-flex justify-content-center">
                         <div class="d-flex justify-content-center">
@@ -136,15 +126,12 @@
             <br>
             <div class="row featurette">
                 <div class="col-md-7">
-                    <h2 class="featurette-heading">Hola<span class="text-muted">mundo</span></h2>
-                    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint enim reprehenderit nemo?
-                        Possimus quod neque deleniti officia quis animi sunt nihil eaque, odio, provident ipsum illo
-                        corporis
-                        reprehenderit a! Magnam?</p>
+                    <h2 class="featurette-heading">{{ $readers[0]->title }}</h2>
+                    <p class="lead">{!! nl2br(e($readers[0]->description)) !!}</p>
                 </div>
                 <div class="col-md-5">
                     <div class="shadow">
-                        <img src="{{ url('/images/home/cloud.jpg') }}" style="display: block;
+                        <img src="{{ url('' . $readers[0]->url_image . '') }}" style="display: block;
                         margin: 0 auto;
                         max-width: 100%;
                         width: 100%;">
@@ -156,15 +143,12 @@
             <br>
             <div class="row featurette">
                 <div class="col-md-7 order-md-2">
-                    <h2 class="featurette-heading">Hola<span class="text-muted">mundo</span></h2>
-                    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint enim reprehenderit nemo?
-                        Possimus quod neque deleniti officia quis animi sunt nihil eaque, odio, provident ipsum illo
-                        corporis
-                        reprehenderit a! Magnam?</p>
+                    <h2 class="featurette-heading">{{ $readers[1]->title }}</span></h2>
+                    <p class="lead">{!! nl2br(e($readers[1]->description)) !!}</p>
                 </div>
                 <div class="col-md-5 order-md-1">
                     <div class="shadow">
-                        <img src="{{ url('/images/home/musica.jpg') }}" style="display: block;
+                        <img src="{{ url('' . $readers[1]->url_image . '') }}" style="display: block;
                         margin: 0 auto;
                         max-width: 100%;
                         width: 100%;">
@@ -177,15 +161,12 @@
             <br>
             <div class="row featurette">
                 <div class="col-md-7">
-                    <h2 class="featurette-heading">Hola<span class="text-muted">mundo</span></h2>
-                    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint enim reprehenderit nemo?
-                        Possimus quod neque deleniti officia quis animi sunt nihil eaque, odio, provident ipsum illo
-                        corporis
-                        reprehenderit a! Magnam?</p>
+                    <h2 class="featurette-heading">{{ $readers[2]->title }}</span></h2>
+                    <p class="lead">{!! nl2br(e($readers[2]->description)) !!}</p>
                 </div>
                 <div class="col-md-5">
                     <div class="shadow">
-                        <img src="{{ url('/images/home/amigos.jpg') }}" style="display: block;
+                        <img src="{{ url('' . $readers[2]->url_image . '') }}" style="display: block;
                         margin: 0 auto;
                         max-width: 100%;
                         width: 100%;">
