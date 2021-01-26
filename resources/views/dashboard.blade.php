@@ -18,7 +18,7 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav mr-auto">
                 <!-- This menu is hidden in bigger devices with d-sm-none.
-                       The sidebar isn't proper for smaller screens imo, so this dropdown menu can keep all the useful sidebar itens exclusively for smaller screens  -->
+                                               The sidebar isn't proper for smaller screens imo, so this dropdown menu can keep all the useful sidebar itens exclusively for smaller screens  -->
                 {{-- <li class="nav-item dropdown d-sm-block d-md-none">
                     <a class="nav-link dropdown-toggle" href="#" id="smallerscreenmenu" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false"> Menu </a>
@@ -65,24 +65,46 @@
                         <span class="menu-collapsed">Password</span>
                     </a>
                 </div>
+                <a href="#submenu4" data-toggle="collapse" aria-expanded="false"
+                    class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
+                    <div class="d-flex w-100 justify-content-start align-items-center">
+                        <span class="fa fa-user fa-fw mr-3"></span>
+                        <span class="menu-collapsed">Friends</span>
+                        <span class="submenu-icon ml-auto"></span>
+                    </div>
+                </a>
+                <!-- Submenu content -->
+                <div id="submenu4" class="collapse sidebar-submenu">
+                    <a style="cursor: pointer" class="list-group-item list-group-item-action bg-dark text-white"
+                        data-toggle="modal" data-target="">
+                        <span class="menu-collapsed" style="color: rgb(14, 207, 14)"><i
+                                class="fas fa-plus-circle mr-2"></i>Add new</span>
+                    </a>
+                    <livewire:user-friends/>
+                </div>
                 <!-- Separator with title -->
                 <li class="list-group-item sidebar-separator-title text-muted d-flex align-items-center menu-collapsed">
                     <small>OPTIONS</small>
                 </li>
                 <!-- /END Separator -->
-                <a href="#" class="bg-dark list-group-item list-group-item-action">
+                <!-- Menu with submenu -->
+                <a href="#submenu3" data-toggle="collapse" aria-expanded="false"
+                    class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
                     <div class="d-flex w-100 justify-content-start align-items-center">
-                        <span class="fa fa-calendar fa-fw mr-3"></span>
-                        <span class="menu-collapsed">Calendar</span>
+                        <span class="fa fa-user fa-fw mr-3"></span>
+                        <span class="menu-collapsed">Mis Carpetas</span>
+                        <span class="submenu-icon ml-auto"></span>
                     </div>
                 </a>
-                <a href="#" class="bg-dark list-group-item list-group-item-action">
-                    <div class="d-flex w-100 justify-content-start align-items-center">
-                        <span class="fa fa-envelope-o fa-fw mr-3"></span>
-                        <span class="menu-collapsed">Messages <span
-                                class="badge badge-pill badge-primary ml-2">5</span></span>
-                    </div>
-                </a>
+                <!-- Submenu content -->
+                <div id="submenu3" class="collapse sidebar-submenu">
+                    <a style="cursor: pointer" class="list-group-item list-group-item-action bg-dark text-white"
+                        data-toggle="modal" data-target="#addDir">
+                        <span class="menu-collapsed" style="color: rgb(14, 207, 14)"><i
+                                class="fas fa-plus-circle mr-2"></i>Add new</span>
+                    </a>
+                    <livewire:user-directorys />
+                </div>
                 <!-- Separator without title -->
                 <li class="list-group-item sidebar-separator menu-collapsed"></li>
 
@@ -104,7 +126,10 @@
                     class="bg-dark list-group-item list-group-item-action d-flex align-items-center">
                     <div class="d-flex w-100 justify-content-start align-items-center">
                         <span id="collapse-icon" class="fa fa-2x mr-3"></span>
-                        <span id="collapse-text" class="menu-collapsed">Log Out</span>
+                        <span id="collapse-text" class="menu-collapsed" style="color: red"><i
+                                class="fas fa-sign-out-alt mr-2"></i>
+                            <strong>Log Out</strong>
+                        </span>
                     </div>
                 </a>
                 <!-- Logo -->
@@ -120,6 +145,14 @@
 
         </div>
         <!-- Main Col END -->
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="addDir" tabindex="-1" role="dialog" aria-labelledby="addDirLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <livewire:add-directory-form />
+            </div>
+        </div>
     </div>
 @endsection
 

@@ -12,7 +12,7 @@ class DashboardController extends Controller
         return view('dashboard');
     }
 
-    public function salir(Request $request){
+    public function salir(){
         Auth::logout();
         return redirect()->route('home');
     }
