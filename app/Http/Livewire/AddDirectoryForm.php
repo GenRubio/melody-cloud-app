@@ -24,7 +24,7 @@ class AddDirectoryForm extends Component
         $path = 'users/' . auth()->user()->repositorio . '/' . $this->nombre;
         File::makeDirectory($path, 0777, true, true);
 
-        session()->flash('message', 'Se ha creado nuevo directorio.');
+        $this->nombre = "";
 
     }
 }

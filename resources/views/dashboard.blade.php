@@ -142,7 +142,7 @@
         <!-- sidebar-container END -->
         <!-- MAIN -->
         <div class="col py-3">
-
+            @yield('dashboard-content')
         </div>
         <!-- Main Col END -->
     </div>

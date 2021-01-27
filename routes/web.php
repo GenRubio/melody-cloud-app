@@ -2,10 +2,10 @@
 
 use App\Http\Controllers\Home\LoginController;
 use App\Http\Controllers\Dashboard\DashboardController;
+use App\Http\Controllers\DirsController;
 use App\Http\Controllers\Home\RegistroController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
-
 
 //Home Routs
 Route::get('/', [HomeController::class, 'index'])
@@ -15,7 +15,6 @@ Route::get('/singup', [RegistroController::class, 'index'])
 Route::get('/login', [LoginController::class, 'index'])
     ->name('login');
 
-
 ///Dashboard Routs
 Route::middleware('auth')->group(function () {
 
@@ -24,4 +23,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/dasboard/salir', [DashboardController::class, 'salir'])
         ->name('dashboard.go-out');
+
+    Route::get('/dashboard/{directory}', [DirsController::class, 'index'])
+    ->name('directorio');
 });
