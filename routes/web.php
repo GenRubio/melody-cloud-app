@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Home\LoginController;
 use App\Http\Controllers\Dashboard\DashboardController;
+use App\Http\Controllers\Dashboard\DirUserController;
 use App\Http\Controllers\DirsController;
 use App\Http\Controllers\Home\RegistroController;
 use App\Http\Controllers\HomeController;
@@ -25,5 +26,8 @@ Route::middleware('auth')->group(function () {
         ->name('dashboard.go-out');
 
     Route::get('/dashboard/{directory}', [DirsController::class, 'index'])
-    ->name('directorio');
+        ->name('directorio');
+
+    Route::post('/dashboard/addSound', [DirUserController::class, 'addSound'])
+        ->name('add.user.sound');
 });

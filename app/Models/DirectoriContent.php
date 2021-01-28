@@ -12,5 +12,6 @@ class DirectoriContent extends Model
         'dir_id',
         'user_id',
         'sound',
+        'titulo',
     ];
 }
