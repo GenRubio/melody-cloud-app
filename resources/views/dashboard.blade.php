@@ -5,21 +5,20 @@
 @endsection
 
 @section('navBar')
-    <nav class="navbar navbar-expand-md navbar-dark bg-primary fixed-top">
+    <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
             data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
             aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <a class="navbar-brand" href="#">
-            <img src="https://logodix.com/logo/1122253.png" width="30" height="30" class="d-inline-block align-top" alt="">
-            <span class="menu-collapsed">MelodyCloud</span>
+            <span class="menu-collapsed"><strong style="color: red"><i class="fas fa-cloud"></i> MelodyCloud</strong></span>
         </a>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav mr-auto">
                 <!-- This menu is hidden in bigger devices with d-sm-none.
                                                The sidebar isn't proper for smaller screens imo, so this dropdown menu can keep all the useful sidebar itens exclusively for smaller screens  -->
-                {{-- <li class="nav-item dropdown d-sm-block d-md-none">
+                 <li class="nav-item dropdown d-sm-block d-md-none">
                     <a class="nav-link dropdown-toggle" href="#" id="smallerscreenmenu" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false"> Menu </a>
                     <div class="dropdown-menu" aria-labelledby="smallerscreenmenu">
@@ -28,7 +27,7 @@
                         <a class="dropdown-item" href="#">Tasks</a>
                         <a class="dropdown-item" href="#">Etc ...</a>
                     </div>
-                </li> --}}
+                </li>
                 <!-- Smaller devices menu END -->
             </ul>
         </div>
@@ -115,13 +114,7 @@
                     </div>
                 </a>
 
-                <a href="#" data-toggle="sidebar-colapse"
-                    class="bg-dark list-group-item list-group-item-action d-flex align-items-center">
-                    <div class="d-flex w-100 justify-content-start align-items-center">
-                        <span id="collapse-icon" class="fa fa-2x mr-3"></span>
-                        <span id="collapse-text" class="menu-collapsed">Collapse</span>
-                    </div>
-                </a>
+             
                 <a href="{{ route('dashboard.go-out') }}" data-toggle="sidebar-colapse"
                     class="bg-dark list-group-item list-group-item-action d-flex align-items-center">
                     <div class="d-flex w-100 justify-content-start align-items-center">
@@ -134,14 +127,14 @@
                 </a>
                 <!-- Logo -->
                 <li class="list-group-item logo-separator d-flex justify-content-center">
-                    <img src="https://logodix.com/logo/1122253.png" width="40" height="40">
+                    <i style="font-size: 45px; color:red;" class="fas fa-cloud"></i>
                 </li>
             </ul>
             <!-- List Group END-->
         </div>
         <!-- sidebar-container END -->
         <!-- MAIN -->
-        <div class="col py-3">
+        <div class="col py-3" style="background-color: #d0d0ce;">
             @yield('dashboard-content')
         </div>
         <!-- Main Col END -->
@@ -157,35 +150,5 @@
 @endsection
 
 @section('scripts')
-    <script type="text/javascript">
-        // Hide submenus
-        $('#body-row .collapse').collapse('hide');
-
-        // Collapse/Expand icon
-        $('#collapse-icon').addClass('fa-angle-double-left');
-
-        // Collapse click
-        $('[data-toggle=sidebar-colapse]').click(function() {
-            SidebarCollapse();
-        });
-
-        function SidebarCollapse() {
-            $('.menu-collapsed').toggleClass('d-none');
-            $('.sidebar-submenu').toggleClass('d-none');
-            $('.submenu-icon').toggleClass('d-none');
-            $('#sidebar-container').toggleClass('sidebar-expanded sidebar-collapsed');
-
-            // Treating d-flex/d-none on separators with title
-            var SeparatorTitle = $('.sidebar-separator-title');
-            if (SeparatorTitle.hasClass('d-flex')) {
-                SeparatorTitle.removeClass('d-flex');
-            } else {
-                SeparatorTitle.addClass('d-flex');
-            }
-
-            // Collapse/Expand icon
-            $('#collapse-icon').toggleClass('fa-angle-double-left fa-angle-double-right');
-        }
-
-    </script>
+  
 @endsection
