@@ -17,8 +17,8 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav mr-auto">
                 <!-- This menu is hidden in bigger devices with d-sm-none.
-                                               The sidebar isn't proper for smaller screens imo, so this dropdown menu can keep all the useful sidebar itens exclusively for smaller screens  -->
-                 <li class="nav-item dropdown d-sm-block d-md-none">
+                                                       The sidebar isn't proper for smaller screens imo, so this dropdown menu can keep all the useful sidebar itens exclusively for smaller screens  -->
+                <li class="nav-item dropdown d-sm-block d-md-none">
                     <a class="nav-link dropdown-toggle" href="#" id="smallerscreenmenu" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false"> Menu </a>
                     <div class="dropdown-menu" aria-labelledby="smallerscreenmenu">
@@ -79,7 +79,7 @@
                         <span class="menu-collapsed" style="color: rgb(14, 207, 14)"><i
                                 class="fas fa-plus-circle mr-2"></i>Add new</span>
                     </a>
-                    <livewire:user-friends/>
+                    <livewire:user-friends />
                 </div>
                 <!-- Separator with title -->
                 <li class="list-group-item sidebar-separator-title text-muted d-flex align-items-center menu-collapsed">
@@ -114,7 +114,7 @@
                     </div>
                 </a>
 
-             
+
                 <a href="{{ route('dashboard.go-out') }}" data-toggle="sidebar-colapse"
                     class="bg-dark list-group-item list-group-item-action d-flex align-items-center">
                     <div class="d-flex w-100 justify-content-start align-items-center">
@@ -150,5 +150,5 @@
 @endsection
 
 @section('scripts')
-  
+
 @endsection
