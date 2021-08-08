@@ -17,7 +17,7 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav mr-auto">
                 <!-- This menu is hidden in bigger devices with d-sm-none.
-                                                       The sidebar isn't proper for smaller screens imo, so this dropdown menu can keep all the useful sidebar itens exclusively for smaller screens  -->
+                                                               The sidebar isn't proper for smaller screens imo, so this dropdown menu can keep all the useful sidebar itens exclusively for smaller screens  -->
                 <li class="nav-item dropdown d-sm-block d-md-none">
                     <a class="nav-link dropdown-toggle" href="#" id="smallerscreenmenu" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false"> Menu </a>
@@ -150,5 +150,22 @@
 @endsection
 
 @section('scripts')
+    <script src="https://cdn.socket.io/4.1.2/socket.io.min.js"
+        integrity="sha384-toS6mmwu70G0fw54EGlWWeA4z3dyJ+dlXBtSURSKN4vyRFOcxd3Bzjj/AoOwY+Rg" crossorigin="anonymous">
+    </script>
+    <script>
+        $(document).ready(function() {
+            const socket = io('http://127.0.0.1:3000');
 
+            $(document).on('submit', '#searchYoutube', function(event) {
+                event.preventDefault();
+                let data = {
+                    'token_uid': "{{ auth()->user()->id }}",
+                    'video': $('#videoYouTubeUrl').val(),
+                };
+                socket.emit("sendSound", data);
+
+            })
+        })
+    </script>
 @endsection

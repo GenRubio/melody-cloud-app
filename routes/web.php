@@ -7,6 +7,7 @@ use App\Http\Controllers\DirsController;
 use App\Http\Controllers\Home\RegistroController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MusicaController;
 
 //Home Routs
 Route::get('/', [HomeController::class, 'index'])
@@ -30,4 +31,6 @@ Route::middleware('auth')->group(function () {
 
     Route::post('/dashboard/addSound', [DirUserController::class, 'addSound'])
         ->name('add.user.sound');
+
+    Route::get('/musica', [MusicaController::class, 'index']);
 });

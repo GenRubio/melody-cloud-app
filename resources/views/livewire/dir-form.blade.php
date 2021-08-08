@@ -12,12 +12,14 @@
     </button>
     <div id="formularioSubirSound">
         <hr>
-        <input type="text" class="form-control mb-2" placeholder="Guardar cancion de YouTube">
-        <div class="d-flex justify-content-center">
-            <button class="btn btn-primary">
-                <strong>Search YouTube</strong>
-            </button>
-        </div>
+        <form id="searchYoutube">
+            <input id="videoYouTubeUrl" type="text" class="form-control mb-2" placeholder="Guardar cancion de YouTube">
+            <div class="d-flex justify-content-center">
+                <button type="submit" class="btn btn-primary">
+                    <strong>Search YouTube</strong>
+                </button>
+            </div>
+        </form>
         <div class="d-flex justify-content-center">
             <strong style="color: white">O</strong>
         </div>
@@ -80,6 +82,5 @@
         function openFormCloudFunction() {
             $('#formularioSubirSound').fadeIn(1000);
         }
-
     </script>
 </div>

@@ -1,0 +1,65 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\Gen\\source\\repos\\MelodyCloud\\MelodyCloud\\MelodyCloud.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Gen\\source\\repos\\MelodyCloud\\MelodyCloud\\MelodyCloud.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Gen\\source\\repos\\MelodyCloud\\MelodyCloud\\MelodyCloud.csproj",
+        "projectName": "MelodyCloud",
+        "projectPath": "C:\\Users\\Gen\\source\\repos\\MelodyCloud\\MelodyCloud\\MelodyCloud.csproj",
+        "packagesPath": "C:\\Users\\Gen\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Gen\\source\\repos\\MelodyCloud\\MelodyCloud\\obj\\",
+        "projectStyle": "PackageReference",
+        "skipContentFileWrite": true,
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Gen\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net472"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net472": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {
+          "dependencies": {
+            "MediaToolkit": {
+              "target": "Package",
+              "version": "[1.1.0.1, )"
+            },
+            "VideoLibrary": {
+              "target": "Package",
+              "version": "[3.1.2, )"
+            }
+          }
+        }
+      },
+      "runtimes": {
+        "win": {
+          "#import": []
+        },
+        "win-x64": {
+          "#import": []
+        },
+        "win-x86": {
+          "#import": []
+        }
+      }
+    }
+  }
+}
