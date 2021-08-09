@@ -21,9 +21,9 @@ Route::get('/login', [LoginController::class, 'index'])
 Route::middleware('auth')->group(function () {
 
     Route::get('/dashboard', [DashboardController::class, 'index'])
-        ->name('dasboard');
+        ->name('dashboard');
 
-    Route::get('/dasboard/salir', [DashboardController::class, 'salir'])
+    Route::post('/dasboard/salir', [DashboardController::class, 'salir'])
         ->name('dashboard.go-out');
 
     Route::get('/dashboard/{directory}', [DirsController::class, 'index'])

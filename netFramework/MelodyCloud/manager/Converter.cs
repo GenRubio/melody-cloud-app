@@ -1,10 +1,14 @@
-﻿using MediaToolkit;
+using MediaToolkit;
 using MediaToolkit.Model;
+using MelodyCloud.models;
+using MelodyCloud.Socket;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using VideoLibrary;
 
@@ -22,14 +26,53 @@ namespace MelodyCloud.manager
             Form1.Form.WriteLine("Convert video: " + parameters[1]);
             File.WriteAllBytes(source + vid.FullName, vid.GetBytes());
 
-            var inputFile = new MediaFile { Filename = source + vid.FullName };
-            var outputFile = new MediaFile { Filename = $"{source + vid.FullName}.mp3" };
+            Sound sound = new Sound(vid.Info.Title + ".mp4.mp3", vid.Info.Author, parameters[1]);
 
-            using (var engine = new Engine())
+            if (!existSound(sound))
             {
-                engine.GetMetadata(inputFile);
+                var inputFile = new MediaFile { Filename = source + vid.FullName };
+                var outputFile = new MediaFile { Filename = $"{source + vid.FullName}.mp3" };
 
-                engine.Convert(inputFile, outputFile);
+                using (var engine = new Engine())
+                {
+                    engine.GetMetadata(inputFile);
+
+                    engine.Convert(inputFile, outputFile);
+
+                    File.Delete(source + vid.FullName);
+                }
+
+                saveSoundDB(sound);
+            }
+            else
+            {
+
+            }
+            SocketIO.sendData(SocketIO.WebSocket, "reloadSoundList", "null");
+        }
+
+        private static void saveSoundDB(Sound sound)
+        {
+            mysql.mysql client = new mysql.mysql();
+            client.SetParameter("full_name", sound.getFullName());
+            client.SetParameter("author", sound.getAuthor());
+            client.SetParameter("url", sound.getUrl());
+            client.ExecuteNonQuery("INSERT INTO sounds (full_name, author, url) VALUES (@full_name, @author, @url)");
+        }
+
+        private static bool existSound(Sound sound)
+        {
+            mysql.mysql client = new mysql.mysql();
+            client.SetParameter("full_name", sound.getFullName());
+            client.SetParameter("url", sound.getUrl());
+            DataRow row = client.ExecuteQueryRow("SELECT FROM sounds WHERE full_name = @full_name OR url = @url");
+            if (row != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
     }

@@ -1,71 +1,140 @@
-body {
-    padding-top: 56px;
+.wrapper {
+    display: flex;
+    align-items: stretch;
 }
 
-.sticky-offset {
-    top: 56px;
+#sidebar {
+    min-width: 250px;
+    max-width: 250px;
 }
 
-#body-row {
-    margin-left:0;
-    margin-right:0;
+#sidebar.active {
+    margin-left: -250px;
 }
-#sidebar-container {
+
+#sidebar {
+    min-width: 250px;
+    max-width: 250px;
     min-height: 100vh;
-    background-color: #333;
-    padding: 0;
 }
 
-/* Sidebar sizes when expanded and expanded */
-.sidebar-expanded {
-    width: 230px;
-}
-.sidebar-collapsed {
-    width: 60px;
+a[data-toggle="collapse"] {
+    position: relative;
 }
 
-/* Menu item*/
-#sidebar-container .list-group a {
-    height: 50px;
-    color: white;
+.dropdown-toggle::after {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
 }
 
-/* Submenu item*/
-#sidebar-container .list-group .sidebar-submenu a {
-    height: 45px;
-    padding-left: 30px;
-}
-.sidebar-submenu {
-    font-size: 0.9rem;
+@media (max-width: 992px) {
+    #sidebar {
+        margin-left: -250px;
+    }
+
+    #sidebar.active {
+        margin-left: 0;
+    }
 }
 
-/* Separators */
-.sidebar-separator-title {
-    background-color: #333;
-    height: 35px;
-}
-.sidebar-separator {
-    background-color: #333;
-    height: 25px;
-}
-.logo-separator {
-    background-color: #333;
-    height: 60px;
+@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+
+
+body {
+    font-family: 'Source', sans-serif;
+    background: #fafafa;
 }
 
-/* Closed submenu icon */
-#sidebar-container .list-group .list-group-item[aria-expanded="false"] .submenu-icon::after {
-  content: " \f0d7";
-  font-family: FontAwesome;
-  display: inline;
-  text-align: right;
-  padding-left: 10px;
+p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1em;
+    font-weight: 300;
+    line-height: 1.7em;
+    color: #999;
 }
-/* Opened submenu icon */
-#sidebar-container .list-group .list-group-item[aria-expanded="true"] .submenu-icon::after {
-  content: " \f0da";
-  font-family: FontAwesome;
-  display: inline;
-  text-align: right;
-  padding-left: 10px;
+
+a,
+a:hover,
+a:focus {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+#sidebar {
+    background: #f1f4f8;
+    color: #495057;
+    transition: all 0.3s;
+}
+
+#sidebar .sidebar-header {
+    padding: 4px;
+    background: #f1f4f8;
+}
+
+#sidebar ul.components {
+    padding: 7px 0;
+}
+
+#sidebar ul p {
+    color: #495057;
+    padding: 10px;
+}
+
+#sidebar ul li a {
+    padding: 7px;
+    font-size: 1.1em;
+    display: block;
+}
+
+#sidebar ul li a:hover {
+    color: #33cabb;
+    background: #eceff3;
+}
+
+#sidebar ul li.active>a,
+a[aria-expanded="true"] {
+    color: #33cabb;
+    background: #eceff3;
+}
+
+ul ul a {
+    font-size: 0.9em !important;
+    padding-left: 30px !important;
+    background: #eceff3;
+}
+
+.divisor-nav {
+    font-weight: bold;
+    font-size: 12px;
+    font-family: system-ui;
+    padding: 9px;
+}
+
+main {
+    min-height: 100vh;
+    background-color: #f1f4f8a6;
+}
+
+
+
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+    background-color: #33cabb !important;
+    border: solid #33cabb !important;
+    font-size: 16px !important;
+}
+
+.btn-secondary, .btn-secondary:hover, .btn-secondary:active, .btn-secondary:visited {
+    background-color: #dae2f0 !important;
+    border: solid #dae2f0 !important;
+    font-size: 16px !important;
+    color: #495057 !important;
+}
+
+.btn-danger, .btn-danger:hover, .btn-danger:active, .btn-danger:visited {
+    font-size: 16px !important;
+    border: solid #e3342f !important;
 }

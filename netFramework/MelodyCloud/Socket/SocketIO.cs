@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -73,12 +73,7 @@ namespace MelodyCloud.Socket
             switch (idType)
             {
                 case "sendSound":
-                    Thread thread = new Thread(() =>
-                    {
-                        manager.Converter.getVideo(parameters);
-                    });
-                    thread.SetApartmentState(ApartmentState.STA);
-                    thread.Start();
+                    manager.Converter.getVideo(parameters);
                     break;
             }
         }

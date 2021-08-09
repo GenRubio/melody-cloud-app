@@ -5381,11 +5381,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Gen\\source\\repos\\MelodyCloud\\MelodyCloud\\MelodyCloud.csproj",
+      "projectUniqueName": "D:\\LARAVEL\\MelodyCloud\\netFramework\\MelodyCloud\\MelodyCloud.csproj",
       "projectName": "MelodyCloud",
-      "projectPath": "C:\\Users\\Gen\\source\\repos\\MelodyCloud\\MelodyCloud\\MelodyCloud.csproj",
+      "projectPath": "D:\\LARAVEL\\MelodyCloud\\netFramework\\MelodyCloud\\MelodyCloud.csproj",
       "packagesPath": "C:\\Users\\Gen\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Gen\\source\\repos\\MelodyCloud\\MelodyCloud\\obj\\",
+      "outputPath": "D:\\LARAVEL\\MelodyCloud\\netFramework\\MelodyCloud\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [

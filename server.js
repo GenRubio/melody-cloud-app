@@ -29,7 +29,8 @@ clientC.on("data", function (data) {
 function sendDataHTML(idType, parameters) {
     switch (idType) {
         case "reloadSoundList":
-            io.emit("reloadSoundList-" + parameters[0], parameters[1]);
+            //io.emit("reloadSoundList-" + parameters[0], parameters[1]);
+            console.log("Cancion se ha subido");
             break;
     }
 }

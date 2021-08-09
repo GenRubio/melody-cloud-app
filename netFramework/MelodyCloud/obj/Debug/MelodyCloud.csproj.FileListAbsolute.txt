@@ -12,3 +12,17 @@ C:\Users\Gen\source\repos\MelodyCloud\MelodyCloud\obj\Debug\MelodyCloud.csproj.G
 C:\Users\Gen\source\repos\MelodyCloud\MelodyCloud\obj\Debug\MelodyCloud.csproj.CopyComplete
 C:\Users\Gen\source\repos\MelodyCloud\MelodyCloud\obj\Debug\MelodyCloud.exe
 C:\Users\Gen\source\repos\MelodyCloud\MelodyCloud\obj\Debug\MelodyCloud.pdb
+D:\LARAVEL\MelodyCloud\netFramework\MelodyCloud\bin\Debug\MelodyCloud.exe.config
+D:\LARAVEL\MelodyCloud\netFramework\MelodyCloud\bin\Debug\MelodyCloud.exe
+D:\LARAVEL\MelodyCloud\netFramework\MelodyCloud\bin\Debug\MelodyCloud.pdb
+D:\LARAVEL\MelodyCloud\netFramework\MelodyCloud\bin\Debug\MediaToolkit.dll
+D:\LARAVEL\MelodyCloud\netFramework\MelodyCloud\bin\Debug\Newtonsoft.Json.dll
+D:\LARAVEL\MelodyCloud\netFramework\MelodyCloud\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+D:\LARAVEL\MelodyCloud\netFramework\MelodyCloud\bin\Debug\libvideo.dll
+D:\LARAVEL\MelodyCloud\netFramework\MelodyCloud\obj\Debug\MelodyCloud.csprojAssemblyReference.cache
+D:\LARAVEL\MelodyCloud\netFramework\MelodyCloud\obj\Debug\MelodyCloud.Form1.resources
+D:\LARAVEL\MelodyCloud\netFramework\MelodyCloud\obj\Debug\MelodyCloud.Properties.Resources.resources
+D:\LARAVEL\MelodyCloud\netFramework\MelodyCloud\obj\Debug\MelodyCloud.csproj.GenerateResource.cache
+D:\LARAVEL\MelodyCloud\netFramework\MelodyCloud\obj\Debug\MelodyCloud.csproj.CopyComplete
+D:\LARAVEL\MelodyCloud\netFramework\MelodyCloud\obj\Debug\MelodyCloud.exe
+D:\LARAVEL\MelodyCloud\netFramework\MelodyCloud\obj\Debug\MelodyCloud.pdb
