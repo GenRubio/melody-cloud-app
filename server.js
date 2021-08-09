@@ -13,7 +13,7 @@ const io = require("socket.io")(server, {
 io.on("connection", (socket) => {
     socket.on("sendSound", (data) => {
         console.log( data.video)
-        clientC.write("sendSound|" + data.token_uid + "," + data.video);
+        clientC.write("sendSound|" + data.user_id + "," + data.token_uid + "," + data.video);
     });
 });
 /****************************************************************************** */
@@ -29,8 +29,7 @@ clientC.on("data", function (data) {
 function sendDataHTML(idType, parameters) {
     switch (idType) {
         case "reloadSoundList":
-            //io.emit("reloadSoundList-" + parameters[0], parameters[1]);
-            console.log("Cancion se ha subido");
+            io.emit("reloadSoundList-" + parameters[0]);
             break;
     }
 }

@@ -73,7 +73,7 @@ namespace MelodyCloud.Socket
             switch (idType)
             {
                 case "sendSound":
-                    manager.Converter.getVideo(parameters);
+                    new Thread(() => manager.Converter.getVideo(parameters)).Start();
                     break;
             }
         }

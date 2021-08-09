@@ -1,7 +1,23 @@
 @extends('layouts.panel')
 
+@section('content')
+    <div class="container">
+        <div>
+            <button class="btn btn-primary" data-toggle="modal" data-target="#add-sound">
+                Add sound
+            </button>
+            @include('components.modal-add-sound')
+        </div>
+        <br>
+        <div id="first-sound-container">
+            @include('components.sound-list', [
+            'sounds' => auth()->user()->sounds
+            ])
+        </div>
+    </div>
+@endsection
 
-@section('scripts')
+@section('personal-script')
     <script src="https://cdn.socket.io/4.1.2/socket.io.min.js"
         integrity="sha384-toS6mmwu70G0fw54EGlWWeA4z3dyJ+dlXBtSURSKN4vyRFOcxd3Bzjj/AoOwY+Rg" crossorigin="anonymous">
     </script>
@@ -11,13 +27,24 @@
 
             $(document).on('submit', '#searchYoutube', function(event) {
                 event.preventDefault();
+
+                $('#button-add-sound').attr('disabled', true);
+                $('#button-add-sound').text("Cargando mp3...");
+
+
                 let data = {
-                    'token_uid': "{{ auth()->user()->id }}",
+                    'user_id': "{{ auth()->user()->id }}",
+                    'token_uid': "{{ auth()->user()->uid }}",
                     'video': $('#videoYouTubeUrl').val(),
                 };
                 socket.emit("sendSound", data);
 
             })
+
+            socket.on('reloadSoundList-' + "{{ auth()->user()->uid }}", (message) => {
+                $('#button-add-sound').text("LISTO");
+            });
+
         })
     </script>
 @endsection

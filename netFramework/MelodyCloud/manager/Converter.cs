@@ -19,53 +19,90 @@ namespace MelodyCloud.manager
         private static string repository = @"D:\LARAVEL\MelodyCloud\public\sounds\";
         public static void getVideo(string[] parameters)
         {
-            var source = repository;
-            var youtube = YouTube.Default;
-            var vid = youtube.GetVideo(parameters[1]);
-
-            Form1.Form.WriteLine("Convert video: " + parameters[1]);
-            File.WriteAllBytes(source + vid.FullName, vid.GetBytes());
-
-            Sound sound = new Sound(vid.Info.Title + ".mp4.mp3", vid.Info.Author, parameters[1]);
-
-            if (!existSound(sound))
+            string inputUserId = parameters[0];
+            string inputUserUid= parameters[1];
+            string inputVideo = parameters[2];
+         
+            if (checkUser(inputUserId, inputUserUid) == true)
             {
-                var inputFile = new MediaFile { Filename = source + vid.FullName };
-                var outputFile = new MediaFile { Filename = $"{source + vid.FullName}.mp3" };
+               
+                var source = repository;
+                var youtube = YouTube.Default;
+                var vid = youtube.GetVideo(inputVideo);
 
-                using (var engine = new Engine())
+                Form1.Form.WriteLine("Convert video: " + inputVideo);
+
+                Sound sound = new Sound(vid.Info.Title, vid.Info.Author, inputVideo);
+                File.WriteAllBytes(source + sound.getSlug() + ".mp4", vid.GetBytes());
+
+                if (!existSound(sound))
                 {
-                    engine.GetMetadata(inputFile);
+                    var inputFile = new MediaFile { Filename = $"{source + sound.getSlug()}.mp4" };
+                    var outputFile = new MediaFile { Filename = $"{source + sound.getSlug()}.mp3" };
 
-                    engine.Convert(inputFile, outputFile);
+                    using (var engine = new Engine())
+                    {
+                        engine.GetMetadata(inputFile);
 
-                    File.Delete(source + vid.FullName);
+                        engine.Convert(inputFile, outputFile);
+
+                        File.Delete(source + sound.getSlug() + ".mp4");
+                    }
+
+                    saveSoundDB(sound, int.Parse(inputUserId));
                 }
+                else
+                {
 
-                saveSoundDB(sound);
+                }
+                SocketIO.sendData(SocketIO.WebSocket, "reloadSoundList", inputUserUid);
+            }
+            
+        }
+
+        private static bool checkUser(string id, string uid)
+        {
+            mysql.mysql client = new mysql.mysql();
+            client.SetParameter("id", int.Parse(id));
+            client.SetParameter("uid", uid);
+            DataRow row = client.ExecuteQueryRow("SELECT * FROM users WHERE id = @id AND uid = @uid");
+            if (row != null)
+            {
+                return true;
             }
             else
             {
-
+                return false;
             }
-            SocketIO.sendData(SocketIO.WebSocket, "reloadSoundList", "null");
         }
 
-        private static void saveSoundDB(Sound sound)
+        private static void saveSoundDB(Sound sound, int user_id)
         {
             mysql.mysql client = new mysql.mysql();
             client.SetParameter("full_name", sound.getFullName());
             client.SetParameter("author", sound.getAuthor());
             client.SetParameter("url", sound.getUrl());
-            client.ExecuteNonQuery("INSERT INTO sounds (full_name, author, url) VALUES (@full_name, @author, @url)");
+            client.SetParameter("slug", sound.getSlug());
+            client.ExecuteNonQuery("INSERT INTO sounds (full_name, author, url, slug) VALUES (@full_name, @author, @url, @slug)");
+
+            int sound_id = Convert.ToInt32(client.ExecuteScalar("SELECT MAX(id) FROM sounds"));
+            saveUserSoundDB(sound_id, user_id);
+        }
+
+        private static void saveUserSoundDB(int sound_id, int user_id)
+        {
+            mysql.mysql client = new mysql.mysql();
+            client.SetParameter("user_id", user_id);
+            client.SetParameter("sound_id", sound_id);
+            client.ExecuteNonQuery("INSERT INTO user_sounds (user_id, sound_id) VALUES (@user_id, @sound_id)");
         }
 
         private static bool existSound(Sound sound)
         {
             mysql.mysql client = new mysql.mysql();
-            client.SetParameter("full_name", sound.getFullName());
+            client.SetParameter("slug", sound.getSlug());
             client.SetParameter("url", sound.getUrl());
-            DataRow row = client.ExecuteQueryRow("SELECT FROM sounds WHERE full_name = @full_name OR url = @url");
+            DataRow row = client.ExecuteQueryRow("SELECT * FROM sounds WHERE slug = @slug OR url = @url");
             if (row != null)
             {
                 return true;

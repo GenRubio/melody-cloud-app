@@ -32,6 +32,7 @@ class RegisterForm extends Component
         $user->email = $this->email;
         $user->password = Hash::make($this->password);
         $user->repositorio = Hash::make($this->name . $this->email . $this->password);
+        $user->uid = $this->getUniqueUID();
         $user->save();
 
         $path = 'users/' . $user->repositorio;
@@ -40,4 +41,14 @@ class RegisterForm extends Component
         Auth::login($user);
         return redirect()->intended('/dashboard');
     }
+
+    private function getUniqueUID()
+    {
+        $uid = uniqid('token_uid-');
+        while (User::where('uid', $uid)->first() != null) {
+            $uid = uniqid('token_uid-');
+        }
+        return $uid;
+    }
+
 }

@@ -10,7 +10,7 @@
 
     <ul class="list-unstyled components">
         <li class="{{ Request::is('dashboard') ? 'active' : '' }}">
-            <a href="{{ route('dashboard') }}"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+            <a href="{{ route('dashboard') }}"><i class="fas fa-tachometer-alt"></i> My sounds</a>
         </li>
         <div class="divisor-nav">
             TEST MANAGER

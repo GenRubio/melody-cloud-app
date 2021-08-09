@@ -17,10 +17,11 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'username ',
-        'email ',
+        'username',
+        'email',
         'password',
         'repositorio',
+        'uid'
     ];
 
     /**
@@ -41,4 +42,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    public function sounds(){
+        return $this->hasMany(UserSound::class, 'user_id', 'id');
+    }
 }
