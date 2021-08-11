@@ -5,14 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Sound extends Model
+class UserSoundList extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'full_name',
-        'author',
-        'url',
+        'user_id',
+        'name',
         'slug',
-        'time'
     ];
 }

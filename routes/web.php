@@ -3,6 +3,8 @@
 use App\Http\Controllers\Home\LoginController;
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Dashboard\DirUserController;
+use App\Http\Controllers\Dashboard\SoundListController;
+use App\Http\Controllers\Dashboard\VideoController;
 use App\Http\Controllers\DirsController;
 use App\Http\Controllers\Home\RegistroController;
 use App\Http\Controllers\HomeController;
@@ -22,15 +24,12 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/dashboard', [DashboardController::class, 'index'])
         ->name('dashboard');
-
     Route::post('/dasboard/salir', [DashboardController::class, 'salir'])
         ->name('dashboard.go-out');
 
-    Route::get('/dashboard/{directory}', [DirsController::class, 'index'])
-        ->name('directorio');
+    Route::post('/get-video', [VideoController::class, 'getVideo'])->name('get.video');
 
-    Route::post('/dashboard/addSound', [DirUserController::class, 'addSound'])
-        ->name('add.user.sound');
-
-    Route::get('/musica', [MusicaController::class, 'index']);
+    Route::prefix('list')->group(function () {
+        Route::post('/create', [SoundListController::class, 'create'])->name('list.create');
+    });
 });

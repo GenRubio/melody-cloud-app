@@ -45,6 +45,10 @@ class User extends Authenticatable
 
 
     public function sounds(){
-        return $this->hasMany(UserSound::class, 'user_id', 'id');
+        return $this->hasMany(UserSound::class, 'user_id', 'id')->orderBy('id', 'DESC');
+    }
+
+    public function soundLists(){
+        return $this->hasMany(UserSoundList::class, 'user_id', 'id')->orderBy('id', 'DESC');
     }
 }

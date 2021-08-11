@@ -1,23 +1,21 @@
 <link href={{ asset('css/audio-list.css') }} rel="stylesheet" />
 <link rel="stylesheet" href="https://cdn.plyr.io/3.6.8/plyr.css" />
 
-<div class="container">
-    <div class="column add-bottom">
-        <div id="mainwrap">
-            <div id="nowPlay">
-                <span id="npAction">Paused...</span><span id="npTitle"></span>
+<div class="column add-bottom">
+    <div id="mainwrap">
+        <div id="nowPlay">
+            <span id="npAction">Paused...</span><span id="npTitle"></span>
+        </div>
+        <div id="audiowrap">
+            <div id="audio0">
+                <audio id="audio1" preload controls>Your browser does not support HTML5 Audio! 😢</audio>
             </div>
-            <div id="audiowrap">
-                <div id="audio0">
-                    <audio id="audio1" preload controls>Your browser does not support HTML5 Audio! 😢</audio>
-                </div>
-                <div id="tracks">
-                    <a id="btnPrev">&larr;</a><a id="btnNext">&rarr;</a>
-                </div>
+            <div id="tracks">
+                <a id="btnPrev">&larr;</a><a id="btnNext">&rarr;</a>
             </div>
-            <div id="plwrap">
-                <ul id="plList"></ul>
-            </div>
+        </div>
+        <div id="plwrap">
+            <ul id="plList"></ul>
         </div>
     </div>
 </div>
@@ -48,7 +46,7 @@
                 tranksMake.push({
                 "track": "{{ $key + 1 }}",
                 "name": "{{ $sound->sound->full_name }}",
-                "duration": "2:46",
+                "duration": "{{ $sound->sound->time }}",
                 "file": "/{{ $sound->sound->slug }}"
                 });
             @endforeach

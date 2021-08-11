@@ -12,7 +12,7 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <input type="text" class="form-control" id="videoYouTubeUrl" aria-describedby="emailHelp"
-                            placeholder="YouTube">
+                            placeholder="YouTube" required>
                     </div>
                 </div>
                 <div class="modal-footer">

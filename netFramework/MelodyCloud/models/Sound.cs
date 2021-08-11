@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -14,13 +15,30 @@ namespace MelodyCloud.models
         private string author;
         private string url;
         private string slug;
+        private string time;
 
-        public Sound(string full_name, string author, string url)
+        public Sound(string full_name, string author, string url, string time)
         {
             this.full_name = full_name;
             this.author = author;
             this.url = url;
             slug = setSlug(full_name);
+            this.time = setTime(int.Parse(time));
+        }
+
+        public Sound (DataRow row)
+        {
+            id = (int)row["id"];
+            full_name = (string)row["full_name"];
+            author = (string)row["author"];
+            url = (string)row["url"];
+            slug = (string)row["slug"];
+            time = (string)row["time"];
+        }
+
+        public int getId()
+        {
+            return id;
         }
 
         private string setSlug(string full_name)
@@ -30,26 +48,31 @@ namespace MelodyCloud.models
 
         public string makeSlug(string value)
         {
-            //First to lower case
             value = value.ToLowerInvariant();
-
-            //Remove all accents
             var bytes = Encoding.GetEncoding("Cyrillic").GetBytes(value);
             value = Encoding.ASCII.GetString(bytes);
-
-            //Replace spaces
             value = Regex.Replace(value, @"\s", "-", RegexOptions.Compiled);
-
-            //Remove invalid chars
             value = Regex.Replace(value, @"[^a-z0-9\s-_]", "", RegexOptions.Compiled);
-
-            //Trim dashes from end
             value = value.Trim('-', '_');
-
-            //Replace double occurences of - or _
             value = Regex.Replace(value, @"([-_]){2,}", "$1", RegexOptions.Compiled);
 
             return value;
+        }
+        private string setTime(int seconds)
+        {
+            int minutes = 0;
+            while (seconds - 60 > 0)
+            {
+                seconds = seconds - 60;
+                minutes = minutes + 1;
+            }
+
+            return minutes + ":" + seconds;
+        }
+
+        public string getTime()
+        {
+            return time;
         }
         public string getFullName()
         {
