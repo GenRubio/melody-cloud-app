@@ -13,4 +13,8 @@ class UserSoundList extends Model
         'name',
         'slug',
     ];
+    
+    public function sounds(){
+        return $this->hasMany(UsersListSound::class, 'user_sound_list_id', 'id');
+    }
 }

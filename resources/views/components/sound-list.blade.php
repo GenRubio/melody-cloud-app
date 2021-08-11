@@ -15,13 +15,33 @@
             </div>
         </div>
         <div id="plwrap">
-            <ul id="plList"></ul>
+            <ul id="plList">
+                @foreach ($sounds as $key => $sound)
+                    <li>
+                        <div class="plItem">
+                            <span class="plNum">{{ $key + 1 }}</span>
+                            <span class="plTitle">{{ $sound->sound->full_name }}</span>
+                            <span class="plLength">{{ $sound->sound->time }}</span>
+                            <span class="plLengthMove" data-sound="{{ $sound->sound->id }}">
+                                <i class="fas fa-share"></i>
+                            </span>
+                        </div>
+                    </li>
+                @endforeach
+            </ul>
         </div>
     </div>
 </div>
+@include('components.modal-share-sound')
 
 <script src="https://cdn.plyr.io/3.6.8/plyr.js"></script>
 <script>
+    $(document).on('click', '.plLengthMove', function(event){
+        event.preventDefault();
+        
+        $('#sound-share-id').val($(this).data('sound'));
+        $('#shareSoundToList').modal('show');
+    })
     jQuery(function($) {
         'use strict'
         var supportsAudio = !!document.createElement('audio').canPlayType;
@@ -62,13 +82,6 @@
                     if (trackNumber.toString().length === 1) {
                         trackNumber = '0' + trackNumber;
                     }
-                    $('#plList').append('<li> \
-                    <div class="plItem"> \
-                        <span class="plNum">' + trackNumber + '.</span> \
-                        <span class="plTitle">' + trackName + '</span> \
-                        <span class="plLength">' + trackDuration + '</span> \
-                    </div> \
-                </li>');
                 }),
                 trackCount = tracks.length,
                 npAction = $('#npAction'),

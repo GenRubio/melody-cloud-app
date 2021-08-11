@@ -42,6 +42,7 @@
 
                         setTimeout(function() {
                             $("#sound-lists-bar").html(data.content);
+                            $('.select-copy-list').html(data.sound_list);
 
                             toastr.options.closeButton = true;
                             toastr.success(data.message);

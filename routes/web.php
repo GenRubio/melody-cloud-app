@@ -10,6 +10,7 @@ use App\Http\Controllers\Home\RegistroController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MusicaController;
+use App\Models\Sound;
 
 //Home Routs
 Route::get('/', [HomeController::class, 'index'])
@@ -31,5 +32,7 @@ Route::middleware('auth')->group(function () {
 
     Route::prefix('list')->group(function () {
         Route::post('/create', [SoundListController::class, 'create'])->name('list.create');
+        Route::get('/{slug?}', [SoundListController::class, 'index'])->name('list.view');
+        Route::post('/copy-sound', [SoundListController::class, 'copy'])->name('copy.sound.list');
     });
 });

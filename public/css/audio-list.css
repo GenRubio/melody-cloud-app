@@ -97,13 +97,14 @@ position:relative;
 }
 
 .plTitle {
-left:50px;
-overflow:hidden;
-position:absolute;
-right:65px;
-text-overflow:ellipsis;
-top:0;
-white-space:nowrap;
+    left: 50px;
+    overflow: hidden;
+    position: absolute;
+    right: 143px;
+    text-overflow: ellipsis;
+    top: 0;
+    white-space: nowrap;
+
 }
 
 .plNum {
@@ -112,11 +113,20 @@ width:25px;
 }
 
 .plLength {
-padding-left:21px;
-position:absolute;
-right:21px;
-top:0;
+    padding-left: 21px;
+    position: absolute;
+    right: 63px;
+    top: 0;
 }
+
+.plLengthMove {
+    padding-left: 13px;
+    position: absolute;
+    right: 22px;
+    top: 0;
+    cursor: pointer;
+    z-index: 999;
+ }
 
 .plSel,
 .plSel:hover {
