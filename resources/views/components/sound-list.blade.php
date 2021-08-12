@@ -71,7 +71,9 @@
                     <div id="npAction">Paused...</div>
                     <div id="audiowrap">
                         <div id="audio0">
-                            <audio id="audio1" preload controls>Your browser does not support HTML5 Audio! 😢</audio>
+                            <audio id="audio1" preload controls>
+
+                            </audio>
                         </div>
                         <div id="tracks">
                             <a id="btnPrev">&larr;</a><a id="btnNext">&rarr;</a>
@@ -166,6 +168,12 @@
                         trackNumber = '0' + trackNumber;
                     }
                 }),
+
+                previousTime = 0,
+                currentTime = 0,
+                completeTime = 0,
+                position = 0,
+
                 trackCount = tracks.length,
                 npAction = $('#npAction'),
                 npTitle = $('#npTitle'),
@@ -249,13 +257,13 @@
                 };
             extension = audio.canPlayType('audio/mpeg') ? '.mp3' : audio.canPlayType('audio/ogg') ? '.ogg' : '';
             loadTrack(index);
+            /*player.on("ready", function() {
+                player.currentTime = 60;
+                player.on('timeupdate', function(event) {
+                    player.currentTime = 60;
+                })
+            });*/
 
-            $(document).on('click', '.plyr__progress__buffer', function(e) {
-                alert("hola")
-                var percent = e.offsetX / this.offsetWidth;
-                audio.currentTime = percent * audio.duration;
-                progressBar.value = percent / 100;
-            })
         } else {
             // no audio support
             $('.column').addClass('hidden');
