@@ -65,14 +65,14 @@ a:focus {
 }
 
 #sidebar {
-    background: #f1f4f8;
-    color: #495057;
+    background: #383838;
+    color: #c7c7c7;
     transition: all 0.3s;
 }
 
 #sidebar .sidebar-header {
     padding: 4px;
-    background: #f1f4f8;
+    background: #383838;
 }
 
 #sidebar ul.components {
@@ -91,20 +91,20 @@ a:focus {
 }
 
 #sidebar ul li a:hover {
-    color: #33cabb;
-    background: #eceff3;
+    color: #00f8ff;
+    background: #404040;
 }
 
 #sidebar ul li.active>a,
 a[aria-expanded="true"] {
-    color: #33cabb;
-    background: #eceff3;
+    color: #00f8ff;
+    background: #404040;
 }
 
 ul ul a {
     font-size: 0.9em !important;
     padding-left: 30px !important;
-    background: #eceff3;
+    background: #404040;
 }
 
 .divisor-nav {
@@ -112,18 +112,27 @@ ul ul a {
     font-size: 12px;
     font-family: system-ui;
     padding: 9px;
+    color:#a5a5a5;
 }
 
 main {
     min-height: 100vh;
-    background-color: #f1f4f8a6;
+    background-color: #313131;
+
+    cursor: context-menu;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 
 
 .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
-    background-color: #33cabb !important;
-    border: solid #33cabb !important;
+    background-color: #0cced4 !important;
+    border: solid #0cced4 !important;
     font-size: 16px !important;
 }
 

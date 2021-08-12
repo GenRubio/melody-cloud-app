@@ -3,12 +3,8 @@
 @section('content')
     <div class="container-fluid">
         <div>
-            <button class="btn btn-primary" data-toggle="modal" data-target="#add-sound">
-                <i class="fas fa-plus"></i> Add sound
-            </button>
             @include('components.modal-add-sound')
         </div>
-        <br>
         <div id="first-sound-container">
             @include('components.sound-list', [
             'sounds' => auth()->user()->sounds

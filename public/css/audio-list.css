@@ -56,7 +56,8 @@ margin:0 auto;
 #tracks {
 font-size:0;
 position:relative;
-text-align:center;
+text-align:left;
+margin-top: 20px;
 }
 
 #nowPlay {
@@ -70,15 +71,31 @@ font-size:1.05rem;
 vertical-align:top;
 }
 
-#nowPlay span#npAction {
-padding-top:21px;
-width:30%;
+#npAction {
+    width: 30%;
+    color: white;
+    font-size: 19px;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
-#nowPlay span#npTitle {
-padding:21px;
-text-align:right;
-width:70%;
+.sound-container{
+    background-color: #0000004a;
+    /* padding: 31px; */
+    padding-top: 24px;
+    padding-left: 37px;
+    padding-right: 37px;
+    border-radius: 17px;
+}
+
+
+#npTitle {
+    text-align: left;
+    width: 100%;
+    font-weight: bold;
+    color: #0cced4;
+    font-family: 'Nunito';
+    font-size: 20px;
 }
 
 #plList li {
@@ -115,24 +132,52 @@ width:25px;
 .plLength {
     padding-left: 21px;
     position: absolute;
-    right: 63px;
+    right: 89px;
     top: 0;
 }
 
 .plLengthMove {
     padding-left: 13px;
     position: absolute;
+    right: 54px;
+    top: 0;
+    cursor: pointer;
+    z-index: 999;
+    color: whitesmoke;
+ }
+
+ .plLengthDelete {
+    padding-left: 13px;
+    position: absolute;
     right: 22px;
     top: 0;
     cursor: pointer;
     z-index: 999;
+    color: whitesmoke;
+    transition: all 200ms ease;
+ }
+ .plLengthDelete:hover {
+    color: #ed2724;
  }
 
 .plSel,
 .plSel:hover {
 background-color:rgba(0, 0, 0, .1);
-color:#fff;
+color:#00f8ff;
 cursor:default !important;
+font-weight: bold;
+font-family: 'Nunito';
+font-size: 16px;
+}
+
+.list-colors{
+    font-family: 'Nunito';
+    color:whitesmoke
+}
+
+.list-colors-item:hover{
+    font-family: 'Nunito';
+    color:#00f8ff
 }
 
 #tracks a {
@@ -147,11 +192,12 @@ margin:0 5px 30px;
 padding:12px;
 text-decoration:none;
 transition:background .3s ease;
+background-color: #ffffff1c;
 }
 
 #tracks a:hover,
 #tracks a:active {
-background-color:rgba(0, 0, 0, .1);
+background-color:rgba(255, 255, 255, 0.027);
 color:#fff;
 }
 
@@ -165,12 +211,13 @@ padding:0;
 ================================================== */
 
 .plyr--audio .plyr__controls {
-background-color:transparent;
+background-color:#424141 !important;
 border:none;
-color:#fff;
+color: #0cced4 !important;
 font-family:"Source Sans Pro", arial, sans-serif;
 padding:20px 20px 20px 13px;
 width:100%;
+border-radius: 10px !important;
 }
 
 a.plyr__controls__item.plyr__control:hover,
@@ -178,6 +225,7 @@ a.plyr__controls__item.plyr__control:hover,
 .plyr--audio .plyr__controls button.tab-focus:focus,
 .plyr__play-large {
 background-color:rgba(0, 0, 0, .1);
+
 }
 
 .plyr__progress--played,
@@ -201,6 +249,7 @@ width:calc(100% - 39px);
 .plyr__controls .plyr__controls__item.plyr__time {
 font-size:14px;
 margin-left:7px;
+color: whitesmoke !important;
 }
 
 
@@ -208,8 +257,16 @@ margin-left:7px;
 ================================================== */
 
 @media only screen and (max-width:600px) {
-    #nowPlay span#npAction { display:none; }
-    #nowPlay span#npTitle { display:block; text-align:center; width:100%; }
+    #nowPlay span#npAction { 
+        display:none; 
+        color: white; 
+    }
+    #nowPlay span#npTitle { 
+        display:block; 
+        text-align:center; 
+        width:100%;
+        color: #00f8ff; 
+    }
 }
 
 ol, ul, dl {

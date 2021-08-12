@@ -15,4 +15,8 @@ class Sound extends Model
         'slug',
         'time'
     ];
+
+    public function getVideoIdAttribute(){
+        return str_replace("https://youtu.be/", "", $this->attributes['url']);
+    }
 }

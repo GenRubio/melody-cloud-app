@@ -1,5 +1,7 @@
-<nav class="navbar navbar-expand" style="background-color: #f1f4f8 !important">
-    <a class="navbar-brand font-bold" id="sidebarCollapse" href="#"><i class="fas fa-bars"></i></a>
+<nav class="navbar navbar-expand" style="background-color: #383838 !important">
+    <a class="navbar-brand font-bold" id="sidebarCollapse" href="#" style="color: #a1a1a1;">
+        <i class="fas fa-bars"></i>
+    </a>
   
     <div class="collapse navbar-collapse" id="navbarSuapportedContent-4">
         <ul class="navbar-nav ml-auto nav-flex-icons">

@@ -3,7 +3,7 @@
         <div class="sidebar-header">
             <div class="d-flex justify-content-center">
                 <a href="{{ route('home') }}">
-                    <h3>Melody<b style="color: #33cabb;">Cloud</b></h3>
+                    <h3 style="color: white">Melody<b style="color: #00f8ff;">Cloud</b></h3>
                 </a>
             </div>
     
@@ -16,7 +16,7 @@
             <div class="divisor-nav">
                 AUTHORS
             </div>
-            <li class="{{ Request::is('dashboard') ? 'active' : '' }}">
+            <li class="active">
                 <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                     <i class="fas fa-users"></i> Authors
                 </a>
