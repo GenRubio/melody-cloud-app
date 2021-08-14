@@ -18,7 +18,10 @@ class SoundListController extends Controller
             ->first();
 
         if ($soundList) {
-            return view('pages.dashboard.sound-list', ['sounds' => $soundList->sounds]);
+            return view('pages.dashboard.sound-list', [
+                'sounds' => $soundList->sounds,
+                'list' => $soundList->id,
+            ]);
         } else {
             return back();
         }

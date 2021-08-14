@@ -147,3 +147,14 @@ main {
     font-size: 16px !important;
     border: solid #e3342f !important;
 }
+
+.create-new-list-external{
+    color: #0eb4b9;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 200ms ease;
+}
+
+.create-new-list-external:hover{
+    color: #0cced4;
+}

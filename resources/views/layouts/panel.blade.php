@@ -31,7 +31,9 @@
         <div id="content" class="w-100">
             @include('partials.dashboard.header')
             <main>
-                <br>
+                @if (Request::is('dashboard'))
+                    <br>
+                @endif
                 <div class="container-fluid">
                     <div class="d-flex justify-content-end">
                     </div>

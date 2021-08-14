@@ -3,7 +3,8 @@
         <div class="sidebar-header">
             <div class="d-flex justify-content-center">
                 <a href="{{ route('home') }}">
-                    <h3 style="color: white">Melody<b style="color: #00f8ff;">Cloud</b></h3>
+                    <h3 style="color: white;margin-top: 6px;
+                    margin-bottom: 2px;">Melody<b style="color: #00f8ff;">Cloud</b></h3>
                 </a>
             </div>
     
@@ -33,7 +34,7 @@
                 </ul>
             </li>
             <div class="divisor-nav">
-                SOUND TRANKS
+                SOUND TRACKS
             </div>
             <li class="active">
                 <a href="" data-toggle="modal" data-target="#createList"><i class="far fa-plus-square"></i> Add sound

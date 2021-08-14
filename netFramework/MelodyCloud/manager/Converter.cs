@@ -34,6 +34,8 @@ namespace MelodyCloud.manager
                         YouTube youtube = YouTube.Default;
                         YouTubeVideo vid = youtube.GetVideo(inputVideo);
 
+                        Form1.Form.WriteLine("Audio: " + vid.Info.Title);
+
                         Sound sound = new Sound(vid.Info.Title, vid.Info.Author, inputVideo, Convert.ToString(vid.Info.LengthSeconds));
 
                         File.WriteAllBytes(source + sound.getSlug() + ".mp3", vid.GetBytes());

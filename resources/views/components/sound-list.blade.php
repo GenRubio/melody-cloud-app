@@ -18,6 +18,7 @@
         width: 100%;
         overflow: hidden;
         border-radius: 23px;
+        box-shadow: -1px 0px 11px 2px rgb(12 206 212);
     }
 
     .overflow-auto::-webkit-scrollbar {
@@ -56,7 +57,6 @@
     }
 
 </style>
-<br>
 <div class="column add-bottom">
     <div id="mainwrap">
         <div class="sound-container">
@@ -84,10 +84,7 @@
         </div>
         <br>
         <hr>
-        <button class="btn btn-primary" data-toggle="modal" data-target="#add-sound">
-            <i class="fas fa-plus"></i> Add sound
-        </button>
-        <br> <br>
+        @include ("components.add-sound-button")
         <div class="overflow-auto" style="height: 500px">
             <div id="plwrap">
                 <ul id="plList" class="list-colors">
@@ -112,16 +109,11 @@
     </div>
 </div>
 @include('components.modal-share-sound')
+@include('components.modal-delete-sound')
 
 <script src="https://cdn.plyr.io/3.6.8/plyr.js"></script>
 <script>
-    $(document).on('click', '.plLengthMove', function(event) {
-        event.preventDefault();
-
-        $('#sound-share-id').val($(this).data('sound'));
-        $('#shareSoundToList').modal('show');
-    })
-
+    var audioSet = null;
     jQuery(function($) {
         'use strict'
         var supportsAudio = !!document.createElement('audio').canPlayType;
@@ -244,7 +236,6 @@
                             $(".sound-img").attr("src", tracks[id].image);
                         }
                     });
-
                 },
                 updateDownload = function(id, source) {
                     player.on('loadedmetadata', function() {
@@ -257,13 +248,8 @@
                 };
             extension = audio.canPlayType('audio/mpeg') ? '.mp3' : audio.canPlayType('audio/ogg') ? '.ogg' : '';
             loadTrack(index);
-            /*player.on("ready", function() {
-                player.currentTime = 60;
-                player.on('timeupdate', function(event) {
-                    player.currentTime = 60;
-                })
-            });*/
 
+            audioSet = audio;
         } else {
             // no audio support
             $('.column').addClass('hidden');
@@ -271,4 +257,18 @@
             $('.container').append('<p class="no-support">' + noSupport + '</p>');
         }
     });
+    $(document).on('click', '.plLengthMove', function(event) {
+        event.preventDefault();
+        audioSet.pause();
+        $('#sound-share-id').val($(this).data('sound'));
+        $('#shareSoundToList').modal('show');
+    });
+
+    $(document).on('click', '.plLengthDelete', function(event){
+        event.preventDefault();
+        audioSet.pause();
+
+        $('.sound-generic-delete-id').val($(this).data('sound'));
+        $('#deleteModal').modal('show');
+    })
 </script>

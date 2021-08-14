@@ -17,6 +17,9 @@
                             'soundLists' => auth()->user()->soundLists
                         ])
                     </div>
+                    <div class="create-new-list-external">
+                        <i class="fas fa-plus"></i> Create new list
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -50,6 +53,15 @@
                     $('.copy-sound-button').attr('disabled', false);
                 }
             })
+        })
+
+        $(document).on('click', '.create-new-list-external', function(event){
+            event.preventDefault();
+
+            $('#shareSoundToList').modal('hide');
+            setTimeout(function(){
+                $('#add-sound').modal('show');
+            }, 1000);
         })
     })
 </script>
