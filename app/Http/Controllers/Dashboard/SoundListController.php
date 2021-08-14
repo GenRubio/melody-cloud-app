@@ -29,14 +29,10 @@ class SoundListController extends Controller
 
     public function copy(Request $request)
     {
-        $userSound = UserSound::where('user_id', auth()->user()->id)
-            ->where('sound_id', $request->sound)
-            ->first();
+        $userSound = $this->checkUserSound($request->sound);
 
         if ($userSound) {
-            $userList = UserSoundList::where('user_id', auth()->user()->id)
-                ->where('id', $request->list)
-                ->first();
+            $userList = $this->checkUserListByName($request->list);
 
             if ($userList) {
                 $listSoundCheck = UsersListSound::where('user_sound_list_id', $userList->id)
@@ -71,9 +67,7 @@ class SoundListController extends Controller
 
     public function create(Request $request)
     {
-        $soundList = UserSoundList::where('name', $request->list)
-            ->where('user_id', auth()->user()->id)
-            ->first();
+        $soundList = $this->checkUserListByName($request->list);
 
         $content = null;
 
@@ -104,5 +98,64 @@ class SoundListController extends Controller
                 ]
             )->render(),
         ], Response::HTTP_CREATED);
+    }
+
+    public function deleteSound(Request $request)
+    {
+        $href = "";
+        $sound = $this->checkUserSound($request->sound);
+        if ($sound) {
+            if (isset($request->list)) {
+                $userList = $this->checkUserListById($request->list);
+                if ($userList) {
+                    UsersListSound::where('user_sound_list_id', $request->list)
+                        ->where('sound_id', $request->sound)
+                        ->delete();
+
+                    $success = true;
+                    $message = "";
+
+                    $href = route('list.view', ['slug' => $userList->slug]);
+                } else {
+                    $success = false;
+                    $message = "Ha ocurrido un error";
+                }
+            } else {
+                $sound->delete();
+
+                $success = true;
+                $message = "";
+                $href = route('dashboard');
+            }
+        } else {
+            $success = false;
+            $message = "Ha ocurrido un error";
+        }
+        return response()->json([
+            'success' => $success,
+            'message' => $message,
+            'href' => $href,
+        ], Response::HTTP_CREATED);
+    }
+
+    private function checkUserSound($sound)
+    {
+        return UserSound::where('sound_id', $sound)
+            ->where('user_id', auth()->user()->id)
+            ->first();
+    }
+
+    private function checkUserListByName($list)
+    {
+        return UserSoundList::where('name', $list)
+            ->where('user_id', auth()->user()->id)
+            ->first();
+    }
+
+    private function checkUserListById($list)
+    {
+        return UserSoundList::where('id', $list)
+            ->where('user_id', auth()->user()->id)
+            ->first();
     }
 }

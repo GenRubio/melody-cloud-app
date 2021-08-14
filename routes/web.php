@@ -35,4 +35,8 @@ Route::middleware('auth')->group(function () {
         Route::get('/{slug?}', [SoundListController::class, 'index'])->name('list.view');
         Route::post('/copy-sound', [SoundListController::class, 'copy'])->name('copy.sound.list');
     });
+
+    Route::prefix('sound')->group(function () {
+        Route::post('/delete', [SoundListController::class, 'deleteSound'])->name('sound.delete');
+    });
 });

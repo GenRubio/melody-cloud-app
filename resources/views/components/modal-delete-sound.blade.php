@@ -59,3 +59,26 @@
         </div>
     </div>
 </div>
+
+<script>
+    $(document).ready(function(){
+        $(document).on('submit', '#delete', function(event){
+            event.preventDefault();
+
+            $.ajax({
+                url: "{{ route('sound.delete') }}",
+                method: "POST",
+                data: $(this).serialize(),
+                success:function(data){
+                    if (data.success){
+                        location.href = data.href;
+                    }
+                    else{
+                        toastr.options.closeButton = true;
+                        toastr.error(data.message);
+                    }
+                }
+            })
+        })
+    })
+</script>
