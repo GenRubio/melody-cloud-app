@@ -32,7 +32,7 @@ class SoundListController extends Controller
         $userSound = $this->checkUserSound($request->sound);
 
         if ($userSound) {
-            $userList = $this->checkUserListByName($request->list);
+            $userList = $this->checkUserListById($request->list);
 
             if ($userList) {
                 $listSoundCheck = UsersListSound::where('user_sound_list_id', $userList->id)
