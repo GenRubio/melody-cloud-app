@@ -1,11 +1,11 @@
 ## Despliegue del proyecto modo local 
 
 ##### Programas requeridos
- Visual Studio: https://visualstudio.microsoft.com/es/downloads/
- Visual Studio Code: https://code.visualstudio.com/download
- Composer: https://getcomposer.org/download/
- Node: https://nodejs.org/en/blog/release/v12.18.4/
- Git: https://git-scm.com/
+Visual Studio: https://visualstudio.microsoft.com/es/downloads/
+Visual Studio Code: https://code.visualstudio.com/download
+Composer: https://getcomposer.org/download/
+Node: https://nodejs.org/en/blog/release/v12.18.4/
+Git: https://git-scm.com/
  
 ##### Paso 1
 Clonamos el proyecto y instalamos las librerias de composer y node:
